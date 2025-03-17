@@ -55,7 +55,7 @@ type CallExpression struct {
 
 func NewCallExpression() CallExpression {
     return CallExpression{
-        Type: "CallExpression"
+        Type: "CallExpression",
     }
 }
 
@@ -69,11 +69,11 @@ type Identifier struct {
 
 func NewIdentifier() Identifier {
     return Identifier{
-        Type: "Identifier"
+        Type: "Identifier",
     }
 }
 
-func (idf Identifier) doNothing {
+func (idf Identifier) doNothing() {
 }
 
 type MemberExpression struct {
@@ -90,7 +90,7 @@ type VariableDeclarator struct {
 
 func newVariableDeclarator() VariableDeclarator {
     return VariableDeclarator{
-        Type: "Variable Declarator"
+        Type: "Variable Declarator",
     }
 }
 
@@ -104,7 +104,7 @@ type NumericLiteral struct {
 
 func NewNumericLiteral() NumericLiteral {
     return NumericLiteral{
-        Type: "NumericLiteral"
+        Type: "NumericLiteral",
     }
 }
 
