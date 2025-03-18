@@ -5,7 +5,7 @@ import (
     "regexp"
 )
 
-const specialCharRegExp = `(\s|\(|\)|\;|\.|\")` // ' ', '(', ')', ';', '.', '"'
+const specialCharRegExp = `(\s|\(|\)|\;|\.)` // ' ', '(', ')', ';', '.'
 
 func Tokenize(code []string) []string {
     var allTokens []string
