@@ -3,6 +3,8 @@ package tokenizer
 import (
     "fmt"
     "regexp"
+
+    "de.asiegwarth/jscomp/src/structs"
 )
 
 const specialCharRegExp = `(\s|\(|\)|\;|\.)` // ' ', '(', ')', ';', '.'
@@ -31,4 +33,8 @@ func Tokenize(code []string) []string {
     }        
 
     return allTokens
+}
+
+func DetermineTokenType(token string) structs.Token {
+    return structs.Token{}
 }
