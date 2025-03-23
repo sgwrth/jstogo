@@ -4,6 +4,7 @@ import (
     "fmt"
     "regexp"
 
+    "de.asiegwarth/jscomp/src/dict"
     "de.asiegwarth/jscomp/src/structs"
 )
 
@@ -35,6 +36,18 @@ func Tokenize(code []string) []string {
     return allTokens
 }
 
-func DetermineTokenType(token string) structs.Token {
-    return structs.Token{}
+func DetermineTokenType(token string) interface{} {
+    for _, keyword := range dict.Keywords {
+        if keyword == token {
+            return structs.KeywordToken{Token: structs.Token{Type: "keyword", Literal: token}}
+        }
+    }
+
+    for _, identifier := range dict.Identifiers {
+        if identifier == token {
+            return structs.IdentifierToken{Token: structs.Token{Type: "identifier", Literal: token}}
+        }
+    }
+
+    return nil
 }
