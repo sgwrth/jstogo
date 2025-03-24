@@ -31,3 +31,4 @@ func TestTokenType(t *testing.T) {
         t.Error("wrong token type")
     }
 }
+

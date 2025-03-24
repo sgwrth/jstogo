@@ -67,9 +67,10 @@ type Identifier struct {
     Identifier string
 }
 
-func NewIdentifier() Identifier {
+func NewIdentifier(identifier string) Identifier {
     return Identifier{
         Type: "Identifier",
+        Identifier: identifier,
     }
 }
 
@@ -109,4 +110,19 @@ func NewNumericLiteral() NumericLiteral {
 }
 
 func (nl NumericLiteral) doNothing() {
+}
+
+type StringLiteral struct {
+    Type string
+    Value string
+}
+
+func NewStringLiteral(stringLiteral string) StringLiteral {
+    return StringLiteral{
+        Type: "StringLiteral",
+        Value: stringLiteral,
+    }
+}
+
+func (sl StringLiteral) doNothing() {
 }
