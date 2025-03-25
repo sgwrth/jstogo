@@ -8,23 +8,28 @@ import (
     "de.asiegwarth/jscomp/src/structs"
 )
 
-const specialCharRegExp = `(\s|\(|\)|\;|\.)` // ' ', '(', ')', ';', '.'
+const specialCharRegExp = `(\(|\)|;|\.|")` // punctuation: () . ;
 
 func Tokenize(code []string) []string {
     var allTokens []string
 
     for _, line := range code {
+        fmt.Println(line)
         var token string
-        for _, ch := range line {
-            match, _ := regexp.MatchString(specialCharRegExp, string(ch))
+        for _, char := range line {
+            if char == ' ' {
+                continue
+            }
+            match, _ := regexp.MatchString(specialCharRegExp, string(char))
             if match {
                 if token != "" {
                     allTokens = append(allTokens, token)
                 }
+                allTokens = append(allTokens, string(char))
                 token = ""
                 continue
             } else {
-                token += string(ch)
+                token += string(char)
             }
         }
     }

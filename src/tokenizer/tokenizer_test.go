@@ -7,9 +7,17 @@ import (
 )
 
 func TestTokenize(t *testing.T) {
-    lines := []string{`console.log("foo")`}
+    lines := []string{`console.log("foo");`}
     result := Tokenize(lines)
-    if (result[0] != "console" || result[1] != "log" || result[2] != `"foo"`) {
+    if (result[0] != "console" ||
+            result[1] != "." ||
+            result[2] != "log" ||
+            result[3] != "(" ||
+            result[4] != `"` ||
+            result[5] != "foo" ||
+            result[6] != `"` ||
+            result[7] != ")" ||
+            result[8] != ";") {
         t.Error("operation failed")
     }
 }
