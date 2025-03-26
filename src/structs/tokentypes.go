@@ -5,13 +5,25 @@ type Token struct {
     Literal string
 }
 
+func NewToken(tokenType string, literal string) Token {
+    return Token{Type: tokenType, Literal: literal}
+}
+
 type KeywordToken struct {
     Token
+}
+
+func NewKeywordToken(literal string) KeywordToken {
+    return KeywordToken{Token: NewToken("keyword", literal)}
 }
 
 type IdentifierToken struct {
     Token
     Name string
+}
+
+func NewIdentifierToken(literal string) IdentifierToken {
+    return IdentifierToken{Token: NewToken("identifier", literal), Name: literal}
 }
 
 type StringLiteralToken struct {
@@ -30,4 +42,8 @@ type OperatorToken struct {
 
 type PunctuationToken struct {
     Token
+}
+
+func NewPunctuationToken(literal string) PunctuationToken {
+    return PunctuationToken{Token: NewToken("punctuation", literal)}
 }

@@ -44,15 +44,18 @@ func Tokenize(code []string) []string {
 func DetermineTokenType(token string) interface{} {
     for _, keyword := range dict.Keywords {
         if keyword == token {
-            return structs.KeywordToken{Token: structs.Token{Type: "keyword", Literal: token}}
+            // return structs.KeywordToken{Token: structs.Token{Type: "keyword", Literal: token}}
+            return structs.NewKeywordToken(token)
         }
     }
 
-    for _, identifier := range dict.Identifiers {
-        if identifier == token {
-            return structs.IdentifierToken{Token: structs.Token{Type: "identifier", Literal: token}}
+    for _, punctuation := range dict.Punctuation {
+        if punctuation == token {
+            // return structs.PunctuationToken{Token: structs.Token{Type: "punctuation", Literal: token}}
+            return structs.NewPunctuationToken(token)
         }
     }
 
-    return nil
+    // return structs.IdentifierToken{Token: structs.Token{Type: "identifier", Literal: token}}
+    return structs.NewIdentifierToken(token)
 }

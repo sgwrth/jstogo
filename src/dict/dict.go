@@ -1,4 +1,5 @@
 package dict
 
-var Keywords = [...]string{"let"}
 var Identifiers = [...]string{"console", "log"}
+var Keywords = [...]string{"let"}
+var Punctuation = [...]string{"(", ")", ";", ".", `"`, "'"}
