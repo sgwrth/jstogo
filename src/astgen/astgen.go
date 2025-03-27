@@ -22,6 +22,8 @@ func createASTNodes(codepath string) (*structs.Program, error) {
             astNodes.Body = append(astNodes.Body, structs.NewIdentifier(token))
         case structs.StringLiteralToken:
             astNodes.Body = append(astNodes.Body, structs.NewStringLiteral(token))
+        case structs.PunctuationToken:
+            astNodes.Body = append(astNodes.Body, structs.NewPunctuation(token))
         }
     }
     return &astNodes, nil

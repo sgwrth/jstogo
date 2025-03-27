@@ -11,7 +11,13 @@ func TestCreateASTNodesFromTokens(t *testing.T) {
     if err != nil {
         t.Error("no AST nodes created")
     }
-    if astNodes.Body[0].(structs.Identifier).Type != "Identifier" {
+    _, ok := astNodes.Body[0].(structs.Identifier)
+    if ok == false {
         t.Error("wrong or no AST nodes created")
+    }
+    var value interface{}
+    value, ok = astNodes.Body[1].(structs.Punctuation)
+    if ok == false {
+        t.Errorf("wrong or no AST nodes created: %v\n", value)
     }
 }

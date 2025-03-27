@@ -13,11 +13,9 @@ func TestTokenize(t *testing.T) {
             result[1] != "." ||
             result[2] != "log" ||
             result[3] != "(" ||
-            result[4] != `"` ||
-            result[5] != "foo" ||
-            result[6] != `"` ||
-            result[7] != ")" ||
-            result[8] != ";") {
+            result[4] != `"foo"` ||
+            result[5] != ")" ||
+            result[6] != ";") {
         t.Error("operation failed")
     }
 }
